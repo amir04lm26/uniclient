@@ -1,9 +1,15 @@
 import React from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
-import GridContainer from "../src/components/GridContainer";
-import AddButton from "../src/components/AddButton";
 import styles from "../src/styles/Home.module.css";
+
+const GridContainer = dynamic(() => import("../src/components/GridContainer"), {
+  ssr: false,
+});
+const AddButton = dynamic(() => import("../src/components/AddButton"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
